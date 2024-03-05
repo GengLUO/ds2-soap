@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://foodmenu.io/gt/webservice">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:addOrderRequest>
+            <gs:order>
+                <gs:orderId>1</gs:orderId>
+                <gs:items>
+                    <gs:orderItem>
+                        <gs:mealName>Steak</gs:mealName>
+                        <gs:quantity>2</gs:quantity>
+                    </gs:orderItem>
+                    <gs:orderItem>
+                        <gs:mealName>Portobello</gs:mealName>
+                        <gs:quantity>1</gs:quantity>
+                    </gs:orderItem>
+                </gs:items>
+                <gs:customerName>John Doe</gs:customerName>
+                <gs:deliveryAddress>1234 Elm Street, Anytown</gs:deliveryAddress>
+            </gs:order>
+        </gs:addOrderRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

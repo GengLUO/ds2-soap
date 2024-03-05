@@ -39,5 +39,24 @@ public class MenuEndpoint {
         return response;
     }
 
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCheapestMealRequest")
+    @ResponsePayload
+    public GetCheapestMealResponse getCheapestMeal(@RequestPayload GetCheapestMealRequest request) {
+        GetCheapestMealResponse response = new GetCheapestMealResponse();
+        response.setMeal(mealrepo.findCheapestMeal());
 
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addOrderRequest")
+    @ResponsePayload
+    public AddOrderResponse handleAddOrderRequest(@RequestPayload AddOrderRequest request) {
+        Order order = request.getOrder();
+        String confirmationMessage = mealrepo.processOrder(order);
+
+        AddOrderResponse response = new AddOrderResponse();
+        response.setConfirmation(confirmationMessage);
+
+        return response;
+    }
 }
