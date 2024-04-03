@@ -85,7 +85,6 @@ public class MealRepository {
                 orderDetails.append(meal.getName()).append(", Quantity: ").append(item.getQuantity()).append("\n");
             }
         }
-        orderDetails.append("Done order.\n");
 
         if (!orderDetails.isEmpty()) {
             return "Order confirmed: \n" + orderDetails;
